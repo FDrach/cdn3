@@ -3,7 +3,7 @@ name: Generate and Deploy Directory Listing
 on:
   push:
     branches:
-      - main  # Or your default branch (the log shows 'master', so you might need to change this)
+      - master
 
 jobs:
   build-and-deploy:
