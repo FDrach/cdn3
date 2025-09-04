@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 404 - Not Found</title>
+    <style>
+        @font-face {
+            font-family: 'VT323';
+            src: url('fonts/VT323-Regular.ttf') format('truetype');
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #0000AA;
+            color: #FFFFFF;
+            font-family: 'VT323', monospace;
+            font-size: 1.2rem;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            text-align: center;
+            padding: 2em;
+            box-sizing: border-box;
+        }
+
+        .title-box {
+            background-color: #C0C0C0;
+            color: #0000AA;
+            padding: 0 10px;
+            display: inline-block;
+            margin-bottom: 2em;
+        }
+
+        .content {
+            text-align: left;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .content p {
+            margin: 1.5em 0;
+        }
+
+        .continue-prompt {
+            text-align: center;
+            width: 100%;
+            margin-top: 2em;
+        }
+        
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { background-color: #FFFFFF; }
+            50% { background-color: transparent; }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title-box">
+            <span>Windows</span>
+        </div>
+        <div class="content">
+            <p>A 404 error has occurred. To continue:</p>
+            <p>Press Enter to return to our Home Page, or</p>
+            <p>Press CTRL+ALT+DEL to restart your computer. If you do this,
+            you will lose any unsaved information in all open applications.</p>
+            <p>Error: 404 : FILE_NOT_FOUND : <span id="path-display">???</span></p>
+        </div>
+        <div class="continue-prompt">
+            <span>Press any key to continue</span><span class="cursor">&nbsp;</span>
+        </div>
+    </div>
+    <script>
+        document.getElementById('path-display').textContent = window.location.pathname;
+        function goHome() {
+            window.location.href = '/';
+        }
+        document.addEventListener('keydown', goHome);
+        document.addEventListener('click', goHome);
+    </script>
+</body>
+</html>
