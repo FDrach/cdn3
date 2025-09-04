@@ -3,17 +3,21 @@ name: Generate and Deploy Directory Listing
 on:
   push:
     branches:
-      - master
+      - main  # Or your default branch (the log shows 'master', so you might need to change this)
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
